@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Cloud Cafe</h1>
+
+    <div class="content">
+      <form id="add-cafe-form">
+        <input type="text" name="name" placeholder="Cafe name" />
+        <input type="text" name="city" placeholder="Cafe city" />
+        <button>Add Cafe</button>
+      </form>
+      <ul id="cafe-list"></ul>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDe8G7YAIXngKBkoS9sPE0w3HxP5KJqeIM",
+        authDomain: "cloud-cafe-179f1.firebaseapp.com",
+        databaseURL: "https://cloud-cafe-179f1.firebaseio.com",
+        projectId: "cloud-cafe-179f1",
+        storageBucket: "cloud-cafe-179f1.appspot.com",
+        messagingSenderId: "1022317530631",
+        appId: "1:1022317530631:web:b21d6177b4a8145be1e4a2",
+        measurementId: "G-1N7C6CF2CX",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore();
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
