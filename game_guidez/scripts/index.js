@@ -1,11 +1,25 @@
 const guideList = document.querySelector(".guides");
 const loggedOutLinks = document.querySelectorAll(".logged-out");
 const loggedInLinks = document.querySelectorAll(".logged-in");
+const accountdetails = document.querySelector(".account-details");
 
 // setup ui
 
 const setupUI = (user) => {
   if (user) {
+    //  account info
+    db.collection("users")
+      .doc(user.uid)
+      .get()
+      .then((doc) => {
+        const html = `
+        <div>Logged in as ${user.email}
+        <div>${doc.data().bio}
+        `;
+        accountdetails.innerHTML = html;
+      });
+
+    // toggle ui element
     loggedInLinks.forEach((item) => {
       item.style.display = "block";
 
@@ -14,6 +28,8 @@ const setupUI = (user) => {
       });
     });
   } else {
+    // hiding account
+    accountdetails.innerHTML = "";
     loggedInLinks.forEach((item) => {
       item.style.display = "none";
 
